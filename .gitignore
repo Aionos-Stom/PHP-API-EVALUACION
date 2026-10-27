@@ -1,0 +1,16 @@
+/.env
+/.env.*
+!/.env.example
+/vendor/
+/database/*.sqlite*
+/storage/*.txt
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/framework/cache/data/*
+!/storage/framework/cache/data/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore

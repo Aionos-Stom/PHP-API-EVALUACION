@@ -1,0 +1,24 @@
+name: productos-divisas-api
+services:
+  api:
+    image: productos-divisas-php:8.5.12
+    build: .
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    working_dir: /app
+    init: true
+    ports:
+      - "127.0.0.1:${PRODUCTOS_PORT:-8088}:8080"
+    volumes:
+      - .:/app:ro
+      - ./database:/app/database
+      - ./storage:/app/storage
+      - ./bootstrap/cache:/app/bootstrap/cache
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 64
+    mem_limit: 512m
